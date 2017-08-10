@@ -1,0 +1,7 @@
+.button {
+    background-image: url('../images/UBER_API_Button_1x_Grey_9px_round.png');
+    background-size: cover;
+    width: 280px;
+    height: 44px;
+    margin: 0 auto;
+}
