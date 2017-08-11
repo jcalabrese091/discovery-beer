@@ -1,0 +1,26 @@
+{
+  "name": "discovery-beer",
+  "version": "1.0.0",
+  "description": "discovery beer",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcalabrese091/discovery-beer.git"
+  },
+  "keywords": [
+    "breweries"
+  ],
+  "author": "uci",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jcalabrese091/discovery-beer/issues"
+  },
+  "homepage": "https://github.com/jcalabrese091/discovery-beer#readme",
+  "dependencies": {
+    "express": "^4.15.4",
+    "request": "^2.81.0"
+  }
+}
