@@ -4,7 +4,7 @@
   "description": "discovery beer",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   "homepage": "https://github.com/jcalabrese091/discovery-beer#readme",
   "dependencies": {
     "express": "^4.15.4",
+    "nodemon": "^1.11.0",
     "request": "^2.81.0"
   }
 }
