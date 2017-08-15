@@ -1,5 +1,8 @@
+ $("#selectbrew").on("click", function (event){
+    event.preventDefault();
+ var brew = $("#zipcode").val().trim()
 
-var params=$.param({search:"piece"})
+var params=$.param({search:brew})
 var queryURL = "/brewery?"+params;
 
       console.log(queryURL);
@@ -24,6 +27,11 @@ var queryURL = "/brewery?"+params;
 
 
 });
+
+});
+
+        
+
 	var uberClientId = "zb6GeXdmaA_2W_7pLT7-IrYimFqdTUqF";
 	var uberServerToken = "4PXVVIxPxZWsKpvoDwJybCrn7UFd-NsrfncFxpCz";
         // create placeholder variables
