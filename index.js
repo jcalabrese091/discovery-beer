@@ -18,7 +18,7 @@ app.get('/brewery', function(req, res, next){
 	var brewSearch= req.query.search;
 	console.log(req);
 	request({
-		uri: 'http://beermapping.com/webservice/locquery/a3a84df2963679addec260dee07c9f16/'+brewSearch,
+		uri: 'https://beermapping.com/webservice/locquery/a3a84df2963679addec260dee07c9f16/'+brewSearch,
 	},
   function afterRequestIsDone(error, response, body) {
   	if (error) {
