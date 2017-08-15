@@ -32,19 +32,19 @@ var map, infoWindow;
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
-    var script = document.createElement('script');
-    script.src = "https://maps.googleapis.com/maps/api/geocode/json?address=oggis&key=AIzaSyA8M_UKrxmceM1lc2jBdbX-7AgDCKUlJtg";
-    document.getElementsByTagName('head')[0].appendChild(script);
-    window.eqfeed_callback = function(results) {
-        for (var i = 0; i < results.features.length; i++) {
-          var coords = results.features[i].geometry.coordinates;
-          var latLng = new google.maps.LatLng(coords[1],coords[0]);
-          var marker = new google.maps.Marker({
-            position: latLng,
-            map: map
-          });
-        }
-      };
+    // var script = document.createElement('script');
+    // script.src = "https://maps.googleapis.com/maps/api/geocode/json?address=oggis&key=AIzaSyA8M_UKrxmceM1lc2jBdbX-7AgDCKUlJtg";
+    // document.getElementsByTagName('head')[0].appendChild(script);
+    // window.eqfeed_callback = function(results) {
+    //     for (var i = 0; i < results.features.length; i++) {
+    //       var coords = results.features[i].geometry.coordinates;
+    //       var latLng = new google.maps.LatLng(coords[1],coords[0]);
+    //       var marker = new google.maps.Marker({
+    //         position: latLng,
+    //         map: map
+    //       });
+    //     }
+    //   };
 
 //<-----------------------------------Uber---------------------------------------------->
 
@@ -56,6 +56,8 @@ var uberClientId = "zb6GeXdmaA_2W_7pLT7-IrYimFqdTUqF";
       , userLongitude
       , partyLatitude = 33.652751
       , partyLongitude = -117.846660;
+
+
     navigator.geolocation.watchPosition(function(position) {
         // Update latitude and longitude
         console.log(position);
@@ -94,6 +96,8 @@ var uberClientId = "zb6GeXdmaA_2W_7pLT7-IrYimFqdTUqF";
         }
       });
     };
+
+    
   $("a").click(function(event){
       // Redirect to Uber API via deep-linking to the mobile web-app
       var uberURL = "https://m.uber.com/sign-up?";
