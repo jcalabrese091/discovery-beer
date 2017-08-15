@@ -1,7 +1,19 @@
+  $("a").click(function(event){
+      // Redirect to Uber API via deep-linking to the mobile web-app
+      var uberURL = "https://m.uber.com/sign-up?";
+      // Add parameters
+      uberURL += "client_id=" + uberClientId;
+      if (typeof userLatitude != typeof undefined) uberURL += "&" + "pickup_latitude=" + userLatitude;
+      if (typeof userLongitude != typeof undefined) uberURL += "&" + "pickup_longitude=" + userLongitude;
+      uberURL += "&" + "dropoff_latitude=" + partyLatitude;
+      uberURL += "&" + "dropoff_longitude=" + partyLongitude;
+      uberURL += "&" + "dropoff_nickname=" + "Brewery";
+      // Redirect to Uber
+      window.location.href = uberURL;
+      });
  $("#selectbrew").on("click", function (event){
     event.preventDefault();
- var brew = $("#zipcode").val().trim()
-
+var brew = $("#zipcode").val().trim()
 var params=$.param({search:brew})
 var queryURL = "/brewery?"+params;
 
@@ -15,14 +27,11 @@ var queryURL = "/brewery?"+params;
 
         .done(function(response) {
           	console.log(response);
-        	// var image= $("<iframe>");
+        	// var brewData = response.street[0];
+        	// brewInfo.push(brewData)
+        	// console.log(response.street[0]);
+        	// var brewStore = $("<p>");
         	// var insert= (response.proxylink[0]);
-        	// insert.splice(4,0,"s");
-    		// image.attr("src", response.proxylink[0]);
-    		// image.attr("class","iframe");
-    		// image.attr("width","900px");
-    		// image.attr("height","600px");
-    		// console.log(response.proxylink[0]);
    			// $("#map").append(image);
 
 
@@ -111,9 +120,9 @@ var queryURL = "/brewery?"+params;
         infoWindow.open(map);
       }
     var script = document.createElement('script');
-    script.src = 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp';
+    script.src = "https://maps.googleapis.com/maps/api/geocode/json?address=oggis&key=AIzaSyA8M_UKrxmceM1lc2jBdbX-7AgDCKUlJtg";
     document.getElementsByTagName('head')[0].appendChild(script);
-  window.eqfeed_callback = function(results) {
+    window.eqfeed_callback = function(results) {
         for (var i = 0; i < results.features.length; i++) {
           var coords = results.features[i].geometry.coordinates;
           var latLng = new google.maps.LatLng(coords[1],coords[0]);
