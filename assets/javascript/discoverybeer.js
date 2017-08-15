@@ -25,12 +25,14 @@ var queryURL = "/brewery?"+params;
 
 });
 	var uberClientId = "zb6GeXdmaA_2W_7pLT7-IrYimFqdTUqF";
-	var uberServerToken = "jVnChwYG5omuOSFTalKvIno0s5uteYLSqDE0Uo_g";
+	var uberServerToken = "4PXVVIxPxZWsKpvoDwJybCrn7UFd-NsrfncFxpCz";
         // create placeholder variables
         var userLatitude
       , userLongitude
       , partyLatitude = 33.652751
       , partyLongitude = -117.846660;
+
+
     navigator.geolocation.watchPosition(function(position) {
         // Update latitude and longitude
         console.log(position);
@@ -54,21 +56,40 @@ var queryURL = "/brewery?"+params;
         success: function(result) {
             console.log(result);
             var data = result["prices"];
-		  if (typeof data != typeof undefined) {
-		  // Sort Uber products by time to the user's location
-		  data.sort(function(t0, t1) {
-		    return t0.duration - t1.duration;
-		  });
-		  // Update the Uber button with the shortest time
-		  var shortest = data[0];
-		  if (typeof shortest != typeof undefined) {
-		    console.log("Updating time estimate...");
-		    $("#time").html("IN " + Math.ceil(shortest.duration / 60.0) + " MIN");
-	  		}
-			}
+      		  if (typeof data != typeof undefined) {
+      		  // Sort Uber products by time to the user's location
+      		  data.sort(function(t0, t1) {
+      		    return t0.duration - t1.duration;
+      		  });
+      		  // Update the Uber button with the shortest time
+      		  var shortest = data[0];
+      		  if (typeof shortest != typeof undefined) {
+      		    console.log("Updating time estimate...");
+      		    $("#time").html("IN " + Math.ceil(shortest.duration / 60.0) + " MIN");
+      	  		}
+      			}
         }
+
       });
     };
+
+          $("a").click(function(event){
+      // Redirect to Uber API via deep-linking to the mobile web-app
+      var uberURL = "https://m.uber.com/sign-up?";
+
+      // Add parameters
+      uberURL += "client_id=" + uberClientId;
+      if (typeof userLatitude != typeof undefined) uberURL += "&" + "pickup_latitude=" + userLatitude;
+      if (typeof userLongitude != typeof undefined) uberURL += "&" + "pickup_longitude=" + userLongitude;
+      uberURL += "&" + "dropoff_latitude=" + partyLatitude;
+      uberURL += "&" + "dropoff_longitude=" + partyLongitude;
+      uberURL += "&" + "dropoff_nickname=" + "Thinkful";
+
+      // Redirect to Uber
+      window.location.href = uberURL;
+      });
+
+
           var map, infoWindow;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
