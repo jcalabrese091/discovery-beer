@@ -19,16 +19,17 @@
 	text-align: center;
 	font-size: 80px;
 };
-.iframe {
-	width: 100%;
-    width: -moz-available;
-    width: -webkit-fill-available;
-};
-#map {
-	margin-left: 350px;
-    margin-top: 50px;
-};
 .userInput {
     margin: 20px;
     margin-left: 630px;
 };
+#map {
+   width: 100%;
+   width: -moz-available;
+   width: -webkit-fill-available;
+};
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  };

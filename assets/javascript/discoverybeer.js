@@ -12,13 +12,15 @@ var queryURL = "/brewery?"+params;
 
         .done(function(response) {
           	console.log(response);
-        	var image= $("<iframe>");
-    		image.attr("src", response.proxylink[0]);
-    		image.attr("class","iframe");
-    		image.attr("width","900px");
-    		image.attr("height","600px");
-    		console.log(response.proxylink[0]);
-   			$("#map").append(image);
+        	// var image= $("<iframe>");
+        	// var insert= (response.proxylink[0]);
+        	// insert.splice(4,0,"s");
+    		// image.attr("src", response.proxylink[0]);
+    		// image.attr("class","iframe");
+    		// image.attr("width","900px");
+    		// image.attr("height","600px");
+    		// console.log(response.proxylink[0]);
+   			// $("#map").append(image);
 
 
 });
@@ -67,6 +69,52 @@ var queryURL = "/brewery?"+params;
         }
       });
     };
+          var map, infoWindow;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 6,
+        });
+        infoWindow = new google.maps.InfoWindow;
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Your Location');
+            infoWindow.open(map);
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+    var script = document.createElement('script');
+    script.src = 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp';
+    document.getElementsByTagName('head')[0].appendChild(script);
+  window.eqfeed_callback = function(results) {
+        for (var i = 0; i < results.features.length; i++) {
+          var coords = results.features[i].geometry.coordinates;
+          var latLng = new google.maps.LatLng(coords[1],coords[0]);
+          var marker = new google.maps.Marker({
+            position: latLng,
+            map: map
+          });
+        }
+      }
 //       $("#selectbrew").on("click", function (event){
 //     event.preventDefault();
 //     var brew = $("#zipcode").val().trim();
