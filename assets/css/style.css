@@ -23,7 +23,7 @@
     margin: 20px;
     margin-left: 630px;
 };
-#map {
+.googleMap {
    width: 100%;
    width: -moz-available;
    width: -webkit-fill-available;
