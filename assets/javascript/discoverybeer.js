@@ -23,7 +23,7 @@ var queryURL = "/brewery?"+params;
 
 });
 	var uberClientId = "zb6GeXdmaA_2W_7pLT7-IrYimFqdTUqF";
-	var uberServerToken = "SNXjFleEZCvx1BKQn8VSV7yDFhlu2hMZIEUa7lna";
+	var uberServerToken = "jVnChwYG5omuOSFTalKvIno0s5uteYLSqDE0Uo_g";
         // create placeholder variables
         var userLatitude
       , userLongitude
@@ -67,18 +67,18 @@ var queryURL = "/brewery?"+params;
         }
       });
     };
-      $("#selectbrew").on("click", function (event){
-    event.preventDefault();
-    var brew = $("#zipcode").val().trim();
-var params=$.param({search:brew})
-var queryURL = "/brewery?"+params;
-      console.log(queryURL);
-      $.ajax({
-          url: queryURL,
-          method: "GET",
-          crossDomain: true
-        })
-        .done(function(response) {
-            console.log(response);
-});
-})
+//       $("#selectbrew").on("click", function (event){
+//     event.preventDefault();
+//     var brew = $("#zipcode").val().trim();
+// var params=$.param({search:brew})
+// var queryURL = "/brewery?"+params;
+//       console.log(queryURL);
+//       $.ajax({
+//           url: queryURL,
+//           method: "GET",
+//           crossDomain: true
+//         })
+//         .done(function(response) {
+//             console.log(response);
+// });
+// })
