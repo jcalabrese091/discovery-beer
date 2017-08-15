@@ -1,44 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>DiscoveryBeer</title>
 
-	<title>DiscoveryBeer</title>
-
-<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 </head>
 <body>
 	<div class="container">
 				<div class="row">
-					<div class="col-md-12">row 1 col 1</div>
+					<div class="col-md-12, header">
+						<h1>Discovery?Beer</h1>
+					</div>
 				</div>
+				</div>
+					<div class="userInput">
+						 <form id="Search-form">
+           					 <input type="text" id="zipcode"><br>
+            				<input id="selectbrew" type="submit" value="Find Brewery">
+        				</form>
+					</div>
 				<div class="row">
-					<div class="col-md-12"> row 2 col 1</div>
-				</div>
+					<div id="map" class="col-md-12"></div>
+				
 				<div class="row">
 					<div class="row">
-						<div class="col-md-6">row3 sub1 col1</div>
-						<div class="col-md-6">row3 sub1 col2</div>
+						<div class="col-md-6"></div>
+						<div class="col-md-6"></div>
 					</div>
 					<div class="row">
-						<div class="col-md-6">row3 sub2 col1</div>
-						<div class="col-md-6">row3 sub2 col2</div>
+						<div class="col-md-6"></div>
+						<div class="col-md-6"></div>
 					</div>
 					<div class="row">
-						<div class="col-md-6"><div id="uber" class="button"></div></div>
-						<div class="col-md-6">row3 sub3 col2</div>
+						<div class="col-md-6"><div id="uber" class="button">
+						<p id="time">Estimating Time</p></div>
+						<div class="col-md-6"></div>
 					</div>
 				</div>
 
 ]
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
-  </script>
-<script type="text/javascript" src="assets/javascript/discoverybeer.js"></script>+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+	</script>
+	<script type="text/javascript" src="assets/javascript/discoverybeer.js"></script>+
 </body>
 </html>

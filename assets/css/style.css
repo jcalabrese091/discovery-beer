@@ -4,4 +4,31 @@
     width: 280px;
     height: 44px;
     margin: 0 auto;
+    text-align: right;
+};
+#time {
+    text-align: left;
+    margin-top: 2%;
+    padding-top: 12px;
+    padding-right: 14px;
+};
+* {
+    */ border: 2px solid red;
 }
+.header {
+	text-align: center;
+	font-size: 80px;
+};
+.iframe {
+	width: 100%;
+    width: -moz-available;
+    width: -webkit-fill-available;
+};
+#map {
+	margin-left: 350px;
+    margin-top: 50px;
+};
+.userInput {
+    margin: 20px;
+    margin-left: 630px;
+};
