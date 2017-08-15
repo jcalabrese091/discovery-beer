@@ -25,7 +25,7 @@ var queryURL = "/brewery?"+params;
 
 });
 	var uberClientId = "zb6GeXdmaA_2W_7pLT7-IrYimFqdTUqF";
-	var uberServerToken = "jVnChwYG5omuOSFTalKvIno0s5uteYLSqDE0Uo_g";
+	var uberServerToken = "4PXVVIxPxZWsKpvoDwJybCrn7UFd-NsrfncFxpCz";
         // create placeholder variables
         var userLatitude
       , userLongitude
