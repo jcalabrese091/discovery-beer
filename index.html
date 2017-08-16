@@ -22,6 +22,8 @@
                         </form>
                     </div>
                 <div class="row center">
+                		<input id="address" type="textbox" value="Disneyland">
+                    	<input id="submit" type="button" value="Geocode">
                     <div id="map" style="height: 350px; width: 480px; margin: 0px;" class="col-md-12">
                     </div>
                 </div>
@@ -43,9 +45,7 @@
                         </div>
                 </div>
     </div>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8M_UKrxmceM1lc2jBdbX-7AgDCKUlJtg&callback=initMap">
-    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8M_UKrxmceM1lc2jBdbX-7AgDCKUlJtg&libraries=places&callback=initMap" async defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
     </script>
