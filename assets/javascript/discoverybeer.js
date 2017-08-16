@@ -1,43 +1,61 @@
-//<-----------------------------------Google Maps---------------------------------------------->
-var map, infoWindow;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 6,
-        });
-        infoWindow = new google.maps.InfoWindow;
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Your Location');
-            infoWindow.open(map);
-            map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
+var map;
+    var infowindow;
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 33.8121, lng: -117.9190},
+        zoom: 15
+      });
+      infoWindow = new google.maps.InfoWindow;
+      var service = new google.maps.places.PlacesService(map);
+      service.nearbySearch({
+        location: {lat: 33.8121, lng: -117.9190},
+        radius: 500,
+        type: ['brew']
+      }, callback);
+    }
+    function callback(results, status) {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+          createMarker(results[i]);
         }
       }
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
+    }
+    function createMarker(place) {
+      var placeLoc = place.geometry.location;
+      var marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location
+      });
+      //  google.maps.event.addListener(marker, 'click', function() {
+      //   infowindow.setContent(place.name);
+      //   infowindow.open(map, this);
+      // });
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+          infoWindow.setPosition(pos);
+          infoWindow.setContent('Location found.');
+          infoWindow.open(map);
+          map.setCenter(pos);
+        }, function() {
+          handleLocationError(true, infoWindow, map.getCenter());
+        });
+      } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
       }
+    }
+
     // var script = document.createElement('script');
-    // script.src = "https://maps.googleapis.com/maps/api/geocode/json?address=oggis&key=AIzaSyA8M_UKrxmceM1lc2jBdbX-7AgDCKUlJtg";
+    // script.src = "https://maps.googleapis.com/maps/api/geocode/json?address=oggi's&key=AIzaSyA8M_UKrxmceM1lc2jBdbX-7AgDCKUlJtg";
     // document.getElementsByTagName('head')[0].appendChild(script);
     // window.eqfeed_callback = function(results) {
-    //     for (var i = 0; i < results.features.length; i++) {
-    //       var coords = results.features[i].geometry.coordinates;
+    //     for (var i = 0; i < results.length; i++) {
+    //       var coords = results.geometry.location;
+    //       console.log(coords);
     //       var latLng = new google.maps.LatLng(coords[1],coords[0]);
     //       var marker = new google.maps.Marker({
     //         position: latLng,
@@ -141,4 +159,19 @@ var queryURL = "/brewery?"+params;
         	.done(function(response) {
           		console.log(response);
           	});
+          var script = document.createElement('script');
+    script.src = "https://maps.googleapis.com/maps/api/geocode/json?address="+brew+"&key=AIzaSyA8M_UKrxmceM1lc2jBdbX-7AgDCKUlJtg";
+    document.getElementsByTagName('head')[0].appendChild(script);
+    window.eqfeed_callback = function(results) {
+        for (var i = 0; i < results.length; i++) {
+          var coords = results[i].geometry.location;
+          console.log(coords);
+          var latLng = new google.maps.LatLng(coords[1],coords[0]);
+          var marker = new google.maps.Marker({
+            position: latLng,
+            map: map
+          });
+        }
+      };
+
 });

@@ -1,38 +1,5 @@
-/*.button {
-    background-image: url('../images/UBER_API_Button_1x_Grey_9px_round.png');
-    background-size: cover;
-    width: 280px;
-    height: 44px;
-    margin: 0 auto;
-    text-align: right;
-};
-#time {
-    text-align: left;
-    margin-top: 2%;
-    padding-top: 12px;
-    padding-right: 14px;
-};*/
-}
-.header {
-	text-align: center;
-	font-size: 80px;
-};
-.userInput {
-    margin: 20px;
-    margin-left: 630px;
-};
-.googleMap {
-   width: 100%;
-   width: -moz-available;
-   width: -webkit-fill-available;
-};
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
- };
 .button {
-    background-image: url("assets/images/uber.png");
+    background-image: url("../images/uber.png");
     background-size: cover;
     width: 280px;
     height: 44px;
