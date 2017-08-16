@@ -159,18 +159,18 @@ var queryURL = "/brewery?"+params;
         	.done(function(response) {
           		console.log(response);
           	});
-          var script = document.createElement('script');
-    script.src = "https://maps.googleapis.com/maps/api/geocode/json?address="+brew+"&key=AIzaSyA8M_UKrxmceM1lc2jBdbX-7AgDCKUlJtg";
-    document.getElementsByTagName('head')[0].appendChild(script);
-    window.eqfeed_callback = function(results) {
-        for (var i = 0; i < results.length; i++) {
-          var coords = results[i].geometry.location;
-          console.log(coords);
-          var latLng = new google.maps.LatLng(coords[1],coords[0]);
-          var marker = new google.maps.Marker({
-            position: latLng,
-            map: map
-          });
+    //       var script = document.createElement('script');
+    // script.src = "https://maps.googleapis.com/maps/api/geocode/json?address="+brew+"&key=AIzaSyA8M_UKrxmceM1lc2jBdbX-7AgDCKUlJtg";
+    // document.getElementsByTagName('head')[0].appendChild(script);
+    // window.eqfeed_callback = function(results) {
+    //     for (var i = 0; i < results.length; i++) {
+    //       var coords = results[i].geometry.location;
+    //       console.log(coords);
+    //       var latLng = new google.maps.LatLng(coords[1],coords[0]);
+    //       var marker = new google.maps.Marker({
+    //         position: latLng,
+    //         map: map
+    //       });
         }
       };
 
