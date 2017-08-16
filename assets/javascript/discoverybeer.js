@@ -171,7 +171,7 @@ var queryURL = "/brewery?"+params;
     //         position: latLng,
     //         map: map
     //       });
-        }
-      };
+      //   }
+      // };
 
 });
