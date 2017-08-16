@@ -1,58 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-		<title>DiscoveryBeer</title>
-<!-- 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Brew Finder</title>
+<!--     <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
-	<div class="container">
-				<div class="row">
-					<div class="col-md-12, header">
-						<h1>Discovery?Beer</h1>
-					</div>
-				</div>
-					<div class="userInput">
-						 <form id="Search-form">
-           					 <input type="text" id="zipcode"><br>
-            				<input id="selectbrew" type="submit" value="Find Brewery">
-        				</form>
-					</div>
-				<div class="row">
-					<div id="map" style="height: 200px; width: 500px;" class="col-md-12">
-					</div>
-				</div>
-				<div class="row">
-						<div class="col-md-6"></div>
-						<div class="col-md-6"></div>
-				</div>
-				<div class="row">
-					<div class="col-md-6"></div>
-					<div class="col-md-6"></div>
-				</div>
-				<div class="row">
-						<div class="col-md-6">
-							<a href="#">
-								<div id="uber" class="button">
-									<p id="time">Estimating Time</p>
-								</div>
-							</a>
-						</div>	
-					<div class="col-md-6"></div>
-				</div>
-	</div>
-	<script async defer
+    <div class="container" style="background-image: url('assets/images/background.png'); margin: 5px;">
+                <div class="row">
+                    <div class="col-md-12, header">
+                        <h1 style="color:white; background-color: black;">Brew Finder</h1>
+                    </div>
+                </div>
+                    <div class="row center">
+                         <form id="Search-form">
+                             <input type="text" id="zipcode"><br>
+                            <input id="selectbrew" type="submit" value="Find Brewery">
+                        </form>
+                    </div>
+                <div class="row center">
+                    <div id="map" style="height: 350px; width: 480px; margin: 0px;" class="col-md-12">
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-6"></div>
+                        <div class="col-md-6"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6"></div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12 center">
+                            <a href="#">
+                                <div id="uber" class="button" style="margin: 5px;>
+                                    <p id="time">Estimating Time</p>
+                                </div>
+                            </a>
+                        </div>
+                </div>
+    </div>
+    <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8M_UKrxmceM1lc2jBdbX-7AgDCKUlJtg&callback=initMap">
     </script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
-	</script>
-	<script type="text/javascript" src="assets/javascript/discoverybeer.js"></script>+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="assets/javascript/discoverybeer.js"></script>
 </body>
 </html>
